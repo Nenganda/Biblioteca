@@ -1,0 +1,32 @@
+﻿@model MyLibrary.UI.Web.Models.Catalogo.AtivoIndexModel
+
+<div id="assets">
+    <h3>Biblioteca - Catalogo</h3>
+    <div id="assetsTable">
+        <table class="table table-condensed" id="catalogIndexTable">
+            <thead>
+                <tr>
+                    <th>Imagem</th>
+                    <th>Título</th>
+                    <th>Autor / Diretor</th>
+                    <th>Dewey Número de Chamada</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var ativo in Model.Ativos)
+                {
+                    <tr class="assetRow">
+                        <td class="">
+                            <a asp-controller="Catalogo" asp-action="Details" asp-route-id="@ativo.Id">
+                                <img src="@ativo.ImagemUrl" class="imageCell" />
+                            </a>
+                        </td>
+                        <td class="">@ativo.Titulo</td>
+                        <td class="">@ativo.AutorOuDiretor</td>
+                        <td class="">@ativo.DeweyChamarNumero</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
